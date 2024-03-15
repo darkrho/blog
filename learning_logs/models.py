@@ -21,5 +21,5 @@ class Entry(models.Model):
         verbose_name_plural = 'entries'
         
     def __str__(self):
-        """Return a simple string representing the entry."""
+        """Return a simple string representing the entry foo."""
         return f"{self.text[:50]}..."
