@@ -13,7 +13,7 @@ def index(request):
 @login_required
 def topics(request):
     """Show all topics."""
-    topics = Topic.objectes.filter(owner=request.user).order_by('date_added')
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
@@ -58,7 +58,7 @@ def new_entry(request, topic_id):
         form = EntryForm()
     else:
         # Post data submitted: process data.
-        form = EntryForm(data=request.Post)
+        form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
