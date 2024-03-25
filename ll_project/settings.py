@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third part apps.
+    "django_bootstrap5",
     # My apps
     "learning_logs",
     "accounts",
