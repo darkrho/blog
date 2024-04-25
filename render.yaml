@@ -1,7 +1,7 @@
 databases:
   - name: ll_projectdb
     plan: free
-    databaseName:ll_project
+    databaseName: ll_project
     user: ll_project
 
 services:
