@@ -29,10 +29,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG")
+DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = []
 
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:    
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -98,7 +102,7 @@ WSGI_APPLICATION = "ll_project.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(        
         # Replace this value with your local database's connection string.        
-        default='postgresql://postgres:postgres@localhost:5432/mysite',        
+        default='postgresql://postgres:postgres@localhost:5432/postgres',        
         conn_max_age=600    )
         }
 
